@@ -1,5 +1,5 @@
 import React from 'react'
-import { TodoForm } from './TodoForm';
+import { RegForm } from './RegForm';
 import { createTodo } from './api'
 import { useHistory } from 'react-router-dom';
 
@@ -11,10 +11,7 @@ export const CreateTodo = () => {
     }
     return (
         <div className="container">
-            <div className="mt-3">
-                <h3>Create Todo Item</h3>
-                <TodoForm onSubmit={onSubmit} />
-            </div>
+                <RegForm onSubmit={onSubmit} />
         </div>
     )
 }

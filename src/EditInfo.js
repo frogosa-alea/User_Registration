@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { TodoForm } from "./TodoForm";
+import { RegForm } from "./RegForm";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import { getTodo, updateTodo } from "./api";
 
-export const EditTodo = () => {
+export const EditInfo = () => {
   const match = useRouteMatch()
   const [todo, setTodo] = useState();
   const history = useHistory()
@@ -25,7 +25,7 @@ export const EditTodo = () => {
     <div className="container">
       <div className="mt-3">
         <h3>Edit Todo Item</h3>
-        <TodoForm todo={todo} onSubmit={onSubmit}/>
+        <RegForm todo={todo} onSubmit={onSubmit}/>
       </div>
     </div>
   ) : (

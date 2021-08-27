@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { getTodos } from "./api"
 
-export const TodoList = () => {
+export const RegisteredUserList = () => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const TodoList = () => {
   return (
     <div className="container">
       <div className="mt-3">
-        <h3>Todo List</h3>
+        <h3>Registered Users</h3>
         <table className="table table-striped mt-3">
           <thead>
             <tr>
