@@ -6,7 +6,7 @@ export const TodoForm = ({ todo, onSubmit }) => {
     defaultValues: { 
       text: todo ? todo.text : "",
       description: todo ? todo.description : ""
-      },
+      }
   });
 
   const submitHandler = handleSubmit((data) => {
