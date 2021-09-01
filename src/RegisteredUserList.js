@@ -15,36 +15,39 @@ export const RegisteredUserList = () => {
 
   return (
     <div className="container">
-      <div className="mt-3">
-        <h3>Registered Users</h3>
-        <table className="table table-striped mt-3">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Text</th>
-              <th>Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((todo) => (
+      <br></br>
+      <h3> Registered Users </h3><br></br>
+      <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Age</th>
+          <th scope="col">Year Level</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+  <tbody>
+    {items.map((todo) => (
               <tr key={todo._id}>
-                <td>{todo.password}</td>
-                <td>{todo.username}</td>
-                <td>{todo.email}</td>
-                
-                <td>{todo.text}</td>
-                <td>{todo.description}</td>
-                <td>
-                  <Link to={`/edit/${todo._id}`}>Edit</Link>
+                <td data-label="Name">{todo.password}</td>
+                <td data-label="Username">{todo.username}</td>
+                <td data-label="Email">{todo.email}</td>
+                <td data-label="Age">{todo.text}</td>
+                <td data-label="Year_Level">{todo.description}</td>
+                <td data-label="Edit">
+                <div class="table-button-container">
+                  <button class="btn btn-dark btn-xs">
+                    <Link to={`/edit/${todo._id}`}>Edit</Link></button>&nbsp;&nbsp;
+                  <button class="btn btn-danger btn-xs">
+                    Delete</button>&nbsp;&nbsp;
+                </div>
                 </td>
               </tr>
             ))}
-          </tbody>
-        </table>
-      </div>
+  </tbody>
+  </table>
     </div>
   );
 };

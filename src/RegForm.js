@@ -21,7 +21,7 @@ export const RegForm = ({ todo, onSubmit }) => {
     <form onSubmit={submitHandler}>
 
 <head>
-        <title>Sign Up Form</title>
+        <title>Registration Form</title>
         <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0"></link>
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'></link>
         
@@ -64,9 +64,7 @@ export const RegForm = ({ todo, onSubmit }) => {
          </fieldset>
          <br></br><br></br>
         <div className="form-group">
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-button" >Submit</button>
       </div>
         
        </form>

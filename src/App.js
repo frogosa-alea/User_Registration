@@ -8,17 +8,16 @@ import { EditInfo } from './EditInfo'
 
 function App() {
   return (
+      
     <div>
-      <nav className="navbar bg-light navbar-expand-lg navbar-light">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-            <Link to="/" className="nav-link">Registered Users</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/create" className="nav-link">Registration Form</Link>
-          </li>
+      <div id="menu_wrapper" class="blue">
+		  <div class="left"></div>
+        <ul id="menu">
+          <li><Link to="/" className="nav-link">Registered Users</Link></li>
+          <li><Link to="/create" className="nav-link">Registration Form</Link></li>
         </ul>
-      </nav>
+		  </div>
+      
       <Switch>
         <Route exact path="/" component={RegisteredUserList} />
         <Route exact path="/edit/:id" component={EditInfo} />
