@@ -10,7 +10,7 @@ export const CreateTodo = () => {
         history.push("/")
     }
     return (
-        <div className="container">
+        <div>
                 <RegForm onSubmit={onSubmit} />
         </div>
     )
