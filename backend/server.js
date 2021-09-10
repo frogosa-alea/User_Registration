@@ -44,12 +44,11 @@ app.post('/:id', (req, res) => {
   Todo.findById(id, (err, todo) => {
     if (!todo) res.status(404).send('Todo not found');
     else {
-      todo.firstname = req.body.name;
+      todo.name = req.body.name;
       todo.username = req.body.username;
       todo.email = req.body.email;
-      todo.password = req.body.password;
-      todo.text = req.body.text;
-      todo.description = req.body.description;
+      todo.user_age = req.body.user_age;
+      todo.gender = req.body.gender;
       todo
         .save()
         .then((todo) => {

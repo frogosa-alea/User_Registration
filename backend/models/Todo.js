@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const Todo = mongoose.Schema({
+  firstName: String,
+  middleName: String,
+  lastName: String,
   username: String,
   email: String,
-  password: String,
+  name: String,
   text: String,
   description: String
 });

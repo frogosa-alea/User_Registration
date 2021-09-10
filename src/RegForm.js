@@ -5,12 +5,12 @@ import { useForm } from "react-hook-form";
 export const RegForm = ({ todo, onSubmit }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      firstname: todo ? todo.firstname : "",
+      firstName: todo?todo.firstName : "",
+      middleName: todo?todo.middleName: "",
+      lastName: todo?todo.lastName: "",
       username: todo ? todo.username : "",
       email: todo ? todo.email : "",
-      text: todo ? todo.text : "",
-      description: todo ? todo.description : ""
-      }
+      },
   });
 
   const submitHandler = handleSubmit((data) => {
@@ -29,42 +29,29 @@ export const RegForm = ({ todo, onSubmit }) => {
     <body>
       <div class="row">
     <div class="col-md-12">
-      <form action="index.html" method="post">
+      <form>
         <h1> Registration Form </h1><br></br>
-        
+
         <fieldset>
-          
-        
-          <label for="firstname">Name:</label>
-          <input {...register('firstname')} className="form-control" type="text" name="firstname" id="pl_first_name" placeholder="Enter your name..." required />
+          <label for="name">First Name:</label>
+          <input {...register('firstName', { required: true })} className="form-control" type="text" name="firstName" id="firstName" placeholder="First name" required />
+
+          <label for="name">Middle Name:</label>
+          <input {...register('middleName')} className="form-control" type="text" name="middleName" id="firstName" placeholder="Middle name" />
+
+          <label for="name">Last Name:</label>
+          <input {...register('lastName', { required: true })} className="form-control" type="text" name="lastName" id="firstName" placeholder="Last name" required />
 
           <label for="username">Username:</label>
-          <input {...register('username')} className="form-control"  type="text" name="username" id="pl_username" maxlength="8" placeholder="Enter your username..."/>
+          <input {...register('username', { required: true })} className="form-control"  type="text" name="username" id="pl_username" maxlength="8" placeholder="Enter your username..." required/>
 
           <label for="email">Email:</label>
-          <input {...register('email')} className="form-control" type="email" name="email" id="pl_email" placeholder="Enter your email..."/>
-        
-          <label>Age:</label><br></br>
-          <input type="radio" id="under_13" value="under_13" name="user_age"/><label for="under_13" class="light">Under 13</label><br></br>
-          <input type="radio" id="over_13" value="over_13" name="user_age"/><label for="over_13" class="light">Over 13</label><br></br><br></br>
-
-          <label>Gender:</label><br></br>
-          <input type="radio" id="male" value="Male" name="gender"/><label for="male" class="light">Male</label><br></br>
-          <input type="radio" id="female" value="Female" name="gender"/><label for="female" class="light">Female</label><br></br><br></br>
-          
-         <label for="job">Year Level:</label>
-          <select id="job" name="year">
-              <option value="initial"></option>
-              <option value="first">First Year</option>
-              <option value="second">Second Year</option>
-              <option value="third">Third Year</option>
-              <option value="fourth">Fourth Year</option>
-          </select>
-
+          <input {...register('email', { required: true })} className="form-control" type="email" name="email" id="pl_email" placeholder="Enter your email..." required/>
          </fieldset>
          <br></br><br></br>
         <div className="form-group">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-button" >Submit</button>
+        <button type="button" class="btn btn-primary btn-lg" id="submit-button"  >Submit</button>
+
       </div>
         
        </form>

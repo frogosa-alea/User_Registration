@@ -24,7 +24,7 @@ export const EditInfo = () => {
   return todo ? (
     <div className="container">
       <div className="mt-3">
-        <h3>Edit Todo Item</h3>
+        <h3>Edit User</h3>
         <RegForm todo={todo} onSubmit={onSubmit}/>
       </div>
     </div>

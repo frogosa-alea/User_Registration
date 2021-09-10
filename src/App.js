@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Switch, Link } from 'react-router-dom';
 import { RegisteredUserList } from './RegisteredUserList'
-import { CreateTodo } from './CreateTodo'
+import { CreateUser } from './CreateUser'
 import { EditInfo } from './EditInfo'
 
 
@@ -21,7 +21,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={RegisteredUserList} />
         <Route exact path="/edit/:id" component={EditInfo} />
-        <Route exact path="/create" component={CreateTodo} />
+        <Route exact path="/create" component={CreateUser} />
       </Switch>
     </div>
   );
