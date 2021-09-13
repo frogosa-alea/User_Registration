@@ -1,64 +1,73 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const PORT = 4000;
-const app = express();
-const Todo = require('./models/Todo');
+const express = require("express")
+const cors = require("cors")
+const mongoose = require("mongoose")
+const User = require('./models/User')
 
-app.use(cors());
-app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
+mongoose.connect('mongodb://127.0.0.1:27017/users', { useNewUrlParser: true })
+
 mongoose.connection.once('open', () => {
-  console.log('Mongodb connection established successfully');
-});
+    console.log("Mongodb connection established successfully")
+})
 
-app.get('/', (req, res) => {
-  Todo.find((err, todos) => {
-    if (err) console.log(err);
-    else res.json(todos);
-  });
-});
+const PORT = 4000
 
-app.post('/create', (req, res) => {
-  const todo = new Todo(req.body);
-  todo
-    .save()
-    .then((todo) => {
-      res.json(todo);
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+
+app.get("/", (req, res) => {
+    User.find((err, user) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json(user)
+        }
     })
-    .catch((err) => {
-      res.status(500).send(err.message);
-    });
-});
+})
 
-app.get('/:id', (req, res) => {
-  const id = req.params.id;
-  Todo.findById(id, (err, todo) => {
-    res.json(todo);
-  });
-});
+app.post("/register", (req, res) => {
+    const user = new User(req.body)
+    user.save().then((user) => {
+        res.json(user)
+    }).catch(err => {
+        res.status(500).send(err.message)
+    })
+})
 
-app.post('/:id', (req, res) => {
-  const id = req.params.id;
-  Todo.findById(id, (err, todo) => {
-    if (!todo) res.status(404).send('Todo not found');
-    else {
-      todo.name = req.body.name;
-      todo.username = req.body.username;
-      todo.email = req.body.email;
-      todo.user_age = req.body.user_age;
-      todo.gender = req.body.gender;
-      todo
-        .save()
-        .then((todo) => {
-          res.json(todo);
-        })
-        .catch((err) => res.status(500).send(err.message));
-    }
-  });
-});
+app.get("/:id", (req, res) => {
+    const id = req.params.id
+    User.findById(id, (err, user) => {
+        res.json(user)
+    })
+})
+
+app.post("/:id", (req, res) => {
+    const id = req.params.id
+    User.findById(id, (err, user) => {
+        if (!user) {
+            res.status(404).send("User not found!")
+        } else {
+            user.firstName = req.body.firstName
+            user.middleName = req.body.middleName
+            user.lastName = req.body.lastName
+            user.address = req.body.address
+            user.email = req.body.email
+            user.number = req.body.number
+            user.birthplace = req.body.birthplace
+            user.sex = req.body.sex
+            user.province = req.body.province
+            user.city = req.body.city
+            user.zip = req.body.zip
+            user.save().then(todo => {
+                res.json(todo)
+            }).catch(err => res.status(500).send(err.message))
+        }
+    })
+})
+
 
 app.listen(PORT, () => {
-  console.log('Server is running on port ' + PORT);
-});
+    console.log("Server is running on port " + PORT)
+})

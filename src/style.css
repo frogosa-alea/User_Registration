@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.table td, .table th {
+    border: none;
+}
+
+table.table.table-striped {
+    border: 1px solid #cccccc;
+}
+table.table.table-striped>thead>tr{
+    background-color: #343a40;
+}
+table.table.table-striped>thead>tr>th{
+    color: white;
+}
+table.table.table-striped {
+    text-align: center;
+}
+.form-container{
+    color: #343a40;
+    width: 70%;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.reg-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    background-color: rgb(52, 58, 64, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+label{
+    font-weight: 600;
+}
+.error-message{
+    color: #b50d00;
+    font-size: 13px;
+    margin-top: 3px;
+}

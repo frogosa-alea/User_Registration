@@ -1,27 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch, Link } from 'react-router-dom';
-import { RegisteredUserList } from './RegisteredUserList'
-import { CreateUser } from './CreateUser'
-import { EditInfo } from './EditInfo'
-
+import { UserList } from './UserList'
+import { EditUser } from './EditUser'
+import { RegisterUser } from './RegisterUser'
 
 function App() {
   return (
-      
     <div>
       <div id="menu_wrapper" class="blue">
-		  <div class="left"></div>
+      <div class="left"></div>
         <ul id="menu">
           <li><Link to="/" className="nav-link">Registered Users</Link></li>
-          <li><Link to="/create" className="nav-link">Registration Form</Link></li>
+          <li><Link to="/register" className="nav-link">Registration Form</Link></li>
         </ul>
-		  </div>
-      
+      </div>
+
       <Switch>
-        <Route exact path="/" component={RegisteredUserList} />
-        <Route exact path="/edit/:id" component={EditInfo} />
-        <Route exact path="/create" component={CreateUser} />
+        <Route exact path="/" component={UserList} />
+        <Route exact path="/edit/:id" component={EditUser} />
+        <Route exact path="/register" component={RegisterUser} />
       </Switch>
     </div>
   );
